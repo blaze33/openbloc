@@ -1,1 +1,13 @@
 @import "compass_twitter_bootstrap";
+
+h1 {
+  font-size: 1.5em;
+}
+
+.contact-me {
+  text-align: center;
+  margin-top: 2em;
+  i {
+    font-size: 3em;
+    margin: 1em;  }
+}
