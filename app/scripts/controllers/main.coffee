@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 angular.module('openblocApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller 'MainCtrl', ['$scope', ($scope) ->
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
-  });
+    ]
+  ]
