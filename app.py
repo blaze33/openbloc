@@ -7,7 +7,7 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response
 
 app = Flask(__name__, template_folder='dist', static_folder='dist')
 
@@ -46,11 +46,13 @@ if app.debug:
 
     @app.route('/styles/<path:filename>')
     def send_style(filename):
-        return redirect(dev_server + 'styles/' + filename)
+        r = requests.get(dev_server + 'styles/' + filename)
+        return Response(r.content, mimetype=r.headers['content-type'])
 
     @app.route('/components/<path:filename>')
     def send_component(filename):
-        return requests.get(dev_server + 'components/' + filename).content
+        r = requests.get(dev_server + 'components/' + filename)
+        return Response(r.content, mimetype=r.headers['content-type'])
 
     @app.route('/scripts/<path:filename>')
     def send_script(filename):
