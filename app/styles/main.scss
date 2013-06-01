@@ -3,6 +3,8 @@
 $fontAwesomePath: "../components/font-awesome/font";
 @import "font-awesome/sass/font-awesome.sass";
 
+$r: 20px;
+$break-small: 650px;
 
 html {
   background: url('../images/beautiful sunrise 2 mod.jpg') no-repeat center center fixed;
@@ -16,7 +18,9 @@ body {
 
 .content {
   background: rgba(255, 255, 255, .7);
-  border-radius: 20px;
+  &:first-child {border-radius: $r;}
+  &:nth-child(2) { border-radius: $r $r 0 0; }
+  &:last-child { border-radius: 0 0 $r $r; }
 }
 
 h1 {
@@ -32,8 +36,8 @@ $contactMeSize: 3em;
   vertical-align: bottom;
 }
 .contact-me {
-  text-align: center;
   margin-top: 2em;
+  p { text-align: center; }
   a, a:hover {
     display: inline-block;
     text-decoration: none;
@@ -57,5 +61,23 @@ $contactMeSize: 3em;
   }
   .icon-stackoverflow {
     @include icon-from-image('../images/se-icon.png')
+  }
+}
+
+.projects {
+  overflow: hidden;
+  h3 { clear: both; }
+  a:visited { color: #551a8b; }
+  img {
+    float: right;
+    display: inline-block;
+    margin: 0 0 1em 1em;
+    width: 100%;
+    max-width: 338px;
+    @media screen and (max-width: $break-small) {
+      display: block;
+      float: none;
+      margin: 0.5em auto;
+    }
   }
 }
