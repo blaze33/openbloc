@@ -1,13 +1,61 @@
-@import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
+
+$fontAwesomePath: "../components/font-awesome/font";
+@import "font-awesome/sass/font-awesome.sass";
+
+
+html {
+  background: url('../images/beautiful sunrise 2 mod.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  padding-top: 2em;
+  background-color: transparent;
+}
+
+.content {
+  background: rgba(255, 255, 255, .7);
+  border-radius: 20px;
+}
 
 h1 {
   font-size: 1.5em;
 }
 
+$contactMeSize: 3em;
+@mixin icon-from-image($url) {
+  height: $contactMeSize;
+  width: $contactMeSize;
+  background: url($url) no-repeat center center;
+  background-size: 100%;
+  vertical-align: bottom;
+}
 .contact-me {
   text-align: center;
   margin-top: 2em;
+  a, a:hover {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 5%;
+    line-height: 140%;
+  }
   i {
-    font-size: 3em;
-    margin: 1em;  }
+    font-size: $contactMeSize;
+  }
+  .icon-twitter-sign {
+    color: #00aced;
+  }
+  .icon-linkedin-sign {
+    color: #007bb6;
+  }
+  .icon-github-sign {
+    color: $black;
+  }
+  .icon-careers {
+    @include icon-from-image('../images/careers-icon.png');
+  }
+  .icon-stackoverflow {
+    @include icon-from-image('../images/se-icon.png')
+  }
 }
