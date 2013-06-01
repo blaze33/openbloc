@@ -25,9 +25,13 @@ app.config['S3_BUCKET_NAME'] = 'openbloc'
 s3 = FlaskS3()
 s3.init_app(app)
 
+
 ###
 # Routing for your application.
 ###
+@app.route('/google009a062b2cd3a7e6.html')
+def google_webmaster_view():
+    return "google-site-verification: google009a062b2cd3a7e6.html"
 
 
 @app.route('/')
