@@ -14,6 +14,8 @@ echo-test:
 	@echo $(STATICGZ)
 
 push: build-assets push-s3
+	git add -u deploy/static/
+	git commit -m "Builded static assets."
 	git subtree push --prefix deploy heroku master
 
 build-assets:
