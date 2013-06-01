@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'deploy/static'
   };
 
   try {
@@ -38,7 +38,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '.reload'
         ],
         tasks: ['livereload']
       }
@@ -257,6 +258,20 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+    cdn: {
+      options: {
+        /** @required - root URL of your CDN (may contains sub-paths as shown below) */
+        cdn: 'http://s3-eu-west-1.amazonaws.com/openbloc/',
+        /** @optional  - if provided both absolute and relative paths will be converted */
+        flatten: true
+      },
+      dist: {
+        /** @required  - string (or array of) including grunt glob variables */
+        src: ['<%= yeoman.dist %>/*.html', '<%= yeoman.dist %>/*.css'],
+        /** @optional  - if provided a copy will be stored without modifying original file */
+        dest: './dist/static/'
+      }
     }
   });
 
@@ -283,7 +298,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
-    'test',
+    // 'test',
     'coffee',
     'compass:dist',
     'useminPrepare',
@@ -296,7 +311,8 @@ module.exports = function (grunt) {
     'ngmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'cdn'
   ]);
 
   grunt.registerTask('default', ['build']);

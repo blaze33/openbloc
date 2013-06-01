@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+VIRTUAL_ENV=`cdvirtualenv;pwd`
+SITE_PACKAGES=`cdsitepackages;pwd`
+echo "{
+    \"Python\": {
+        \"python\": '"$VIRTUAL_ENV"/bin/python',
+        \"pythonExtraPaths\": ['"$SITE_PACKAGES"',
+        ]
+    },
+}" > .codeintel/config
