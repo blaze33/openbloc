@@ -13,6 +13,12 @@ echo-test:
 	@echo $(STATIC)
 	@echo $(STATICGZ)
 
+push: build-assets push-s3
+	git subtree push --prefix deploy heroku master
+
+build-assets:
+	grunt build
+
 push-s3: compress-static
 	# js/css does need gzipping
 	s3cmd sync --acl-public --guess-mime-type --progress \
