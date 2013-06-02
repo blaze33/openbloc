@@ -13,13 +13,17 @@ echo-test:
 	@echo $(STATIC)
 	@echo $(STATICGZ)
 
-push: build-assets push-s3
-	git add -u deploy/static/
-	git commit -m "Builded static assets."
+push: build-assets commit-assets push-s3 heroku
+
+heroku:
 	git subtree push --prefix deploy heroku master
 
 build-assets:
 	grunt build
+
+commit-assets:
+	git add -u deploy/static/
+	git commit -m "Builded static assets."
 
 push-s3: compress-static
 	# js/css does need gzipping
