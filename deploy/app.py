@@ -7,7 +7,7 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template
+from flask import Flask, request, render_template, send_from_directory
 from flask_s3 import FlaskS3
 
 app = Flask(__name__, template_folder='static')
@@ -69,6 +69,12 @@ if app.debug:
                 '/': os.path.join(os.path.dirname(__file__), '..', folder)
             }, cache=False)
     debug_serve_folders('app', '.tmp')
+
+
+@app.route('/robots.txt')
+@app.route('/favicon.ico')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 ###
