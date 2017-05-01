@@ -53,7 +53,7 @@ $contactMeSize: 3em;
   .icon-linkedin-sign {
     color: #007bb6;
   }
-  .icon-github-sign {
+  .icon-github {
     color: $black;
   }
   .icon-careers {
@@ -62,6 +62,10 @@ $contactMeSize: 3em;
   .icon-stackoverflow {
     @include icon-from-image('../images/se-icon.png')
   }
+}
+
+.rot13 {
+  text-align: center;
 }
 
 .projects {
