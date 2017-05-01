@@ -14,8 +14,8 @@ mock==1.0.1
 # ----------------------
 # Production Server
 # ----------------------
-gevent==0.13.8
-gunicorn==0.17.2
+gevent==1.2.1
+gunicorn==19.7.1
 
 # API
 Flask-RESTful==0.2.1
@@ -24,17 +24,19 @@ Flask-RESTful==0.2.1
 redis==2.7.2
 
 # monitoring
-newrelic==1.11.0.55
+newrelic==2.84.0.64
 
 # network
 requests==1.2.0
 
 ## The following requirements were added by pip --freeze:
-Jinja2==2.6
-Werkzeug==0.8.3
-argparse==1.2.1
-distribute==0.6.34
-greenlet==0.4.0
-pycrypto==2.6
-wsgiref==0.1.2
-boto==2.9.5
+appdirs==1.4.3
+boto==2.46.1
+greenlet==0.4.12
+Jinja2==2.9.6
+MarkupSafe==1.0
+packaging==16.8
+pycrypto==2.6.1
+pyparsing==2.2.0
+six==1.10.0
+Werkzeug==0.12.1
