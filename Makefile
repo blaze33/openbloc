@@ -27,9 +27,9 @@ commit-assets:
 
 push-s3: compress-static
 	# js/css does need gzipping
-	s3cmd sync --acl-public --guess-mime-type --progress \
+	s3cmd sync --acl-public --guess-mime-type --no-mime-magic --progress \
 	--add-header "Cache-Control:public, max-age=31536000" \
-	--add-header "Content-Encoding: gzip" \
+	--add-header "Content-Encoding:gzip" \
 	-r $(STATICGZ)/ s3://openbloc/
 
 	# imgs don't need to be gzipped
