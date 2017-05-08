@@ -1,7 +1,7 @@
-@import "compass_twitter_bootstrap_responsive";
+// @import "compass_twitter_bootstrap_responsive";
 
-$fa-font-path: "../components/font-awesome/font";
-@import "font-awesome/sass/font-awesome.scss";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
 
 $r: 20px;
 $break-small: 650px;
@@ -54,7 +54,7 @@ $contactMeSize: 1.6em;
     color: #007bb6;
   }
   .fa-github, .fa-instagram {
-    color: $black;
+    color: black;
   }
   .icon-careers {
     @include icon-from-image('../images/careers-icon.png');

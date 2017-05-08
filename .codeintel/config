@@ -1,7 +1,0 @@
-{
-    "Python": {
-        "python": '~/.virtualenvs/openbloc/bin/python',
-        "pythonExtraPaths": ['~/.virtualenvs/openbloc/lib/python2.7/site-packages',
-        ]
-    },
-}

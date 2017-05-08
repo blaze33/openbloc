@@ -8,22 +8,20 @@ This file creates your application.
 
 import os
 from flask import Flask, request, render_template, send_from_directory
-from flask_s3 import FlaskS3
+from whitenoise import WhiteNoise
 
-app = Flask(__name__, template_folder='static')
 
-app.config.update(
-    DEBUG=bool(os.environ.get('DEBUG', False)),
-    SECRET_KEY=os.environ.get('SECRET_KEY', 'this_should_be_configured')
-)
-if app.debug:
-    print "DEBUG: ", app.debug
-    app.template_folder = '../app'
-    app.static_folder = '../app'
+def create_app(debug=False):
+    app = Flask(__name__)
+    app.debug = debug
+    app.template_folder = 'static/'
+    # add whitenoise
+    app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/')
 
-app.config['S3_BUCKET_NAME'] = 'openbloc'
-s3 = FlaskS3()
-s3.init_app(app)
+    return app
+
+
+app = create_app(os.environ.get("DEBUG", False))
 
 
 ###
@@ -38,37 +36,6 @@ def google_webmaster_view():
 def home():
     """Render website's home page."""
     return render_template('index.html')
-
-
-@app.route('/views/<path:template>')
-def template(template):
-    return render_template('views/' + template)
-
-
-@app.route('/about/')
-def about():
-    """Render the website's about page."""
-    return render_template('about.html')
-
-
-###
-# Routing static files. TODO: clean this non-DRY mess
-###
-if app.debug:
-    def touch(fname, times=None):
-        import os
-        with file(fname, 'a'):
-            os.utime(fname, times)
-    touch('.reload')
-
-    def debug_serve_folders(*folders):
-        from werkzeug import SharedDataMiddleware
-        import os
-        for folder in folders:
-            app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
-                '/': os.path.join(os.path.dirname(__file__), '..', folder)
-            }, cache=False)
-    debug_serve_folders('app', '.tmp')
 
 
 @app.route('/robots.txt')
