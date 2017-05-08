@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.0.8
+ * @license AngularJS v1.0.7
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -10,25 +10,6 @@
  * @ngdoc overview
  * @name ngSanitize
  * @description
- * 
- * The `ngSanitize` module provides functionality to sanitize HTML.
- * 
- * # Installation
- * As a separate module, it must be loaded after Angular core is loaded; otherwise, an 'Uncaught Error:
- * No module: ngSanitize' runtime error will occur.
- *
- * <pre>
- *   <script src="angular.js"></script>
- *   <script src="angular-sanitize.js"></script>
- * </pre>
- *
- * # Usage
- * To make sure the module is available to your application, declare it as a dependency of you application
- * module.
- *
- * <pre>
- *   angular.module('app', ['ngSanitize']);
- * </pre>
  */
 
 /*
@@ -148,7 +129,7 @@ var START_TAG_REGEXP = /^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:
   BEGING_END_TAGE_REGEXP = /^<\s*\//,
   COMMENT_REGEXP = /<!--(.*?)-->/g,
   CDATA_REGEXP = /<!\[CDATA\[(.*?)]]>/g,
-  URI_REGEXP = /^((ftp|https?):\/\/|mailto:|#)/i,
+  URI_REGEXP = /^((ftp|https?):\/\/|mailto:|#)/,
   NON_ALPHANUMERIC_REGEXP = /([^\#-~| |!])/g; // Match everything outside of normal chars and " (quote character)
 
 
@@ -302,10 +283,10 @@ function htmlParser( html, handler ) {
 
     var attrs = {};
 
-    rest.replace(ATTR_REGEXP, function(match, name, doubleQuotedValue, singleQuotedValue, unquotedValue) {
+    rest.replace(ATTR_REGEXP, function(match, name, doubleQuotedValue, singleQoutedValue, unqoutedValue) {
       var value = doubleQuotedValue
-        || singleQuotedValue
-        || unquotedValue
+        || singleQoutedValue
+        || unqoutedValue
         || '';
 
       attrs[name] = decodeEntities(value);
