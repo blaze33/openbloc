@@ -19,7 +19,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'deploy/static'),
-    publicPath: "static/",
+    publicPath: "/static/",
     filename: 'js/[name].[chunkhash:8].js',
   },
   module: {
