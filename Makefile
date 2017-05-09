@@ -18,7 +18,7 @@ push: build-assets commit-assets push-s3 heroku
 heroku:
 	git subtree push --prefix deploy heroku master
 
-gh-pages:
+github:
 	git subtree push --prefix gh-pages gh-pages master
 
 build-assets:
