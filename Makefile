@@ -23,6 +23,7 @@ gh-pages:
 
 build-assets:
 	npm run build
+	npm run github
 
 commit-assets:
 	git add -u deploy/static/
