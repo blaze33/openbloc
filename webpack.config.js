@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "css/[name].[contenthash:8].css",
+    filename: "css/[name].css?[contenthash:8]",
     disable: process.env.NODE_ENV === "development"
 });
 
@@ -20,7 +20,7 @@ module.exports = function(env) {
     output: {
       path: github ? path.resolve(__dirname, 'gh-pages') : path.resolve(__dirname, 'deploy/static'),
       publicPath: github ? '/' : '/static/',
-      filename: 'js/[name].[chunkhash:8].js',
+      filename: 'js/[name].js?[chunkhash:8]',
     },
     module: {
       loaders: [
