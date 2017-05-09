@@ -19,7 +19,7 @@ heroku:
 	git subtree push --prefix deploy heroku master
 
 build-assets:
-	grunt build
+	npm run build
 
 commit-assets:
 	git add -u deploy/static/
