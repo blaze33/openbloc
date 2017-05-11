@@ -36,6 +36,7 @@
     "webpack-path-rewriter": "^1.1.4"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "normalize.css": "^7.0.0"
   }
 }

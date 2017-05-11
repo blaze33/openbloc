@@ -1,7 +1,9 @@
-// @import "compass_twitter_bootstrap_responsive";
+@import "~normalize.css";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
+
+@import "screen.css";
 
 $r: 20px;
 $break-small: 650px;
@@ -64,7 +66,7 @@ $contactMeSize: 1.6em;
   }
 }
 
-.rot13 {
+.rot13, .blog-link {
   text-align: center;
 }
 
@@ -74,7 +76,6 @@ $contactMeSize: 1.6em;
   padding-bottom: 0;
   overflow: hidden;
   h3 { clear: both; }
-  a:visited { color: #551a8b; }
   img {
     float: right;
     display: inline-block;
@@ -87,4 +88,9 @@ $contactMeSize: 1.6em;
       margin: 0.5em auto;
     }
   }
+}
+
+.footer {
+  font-size: 1em;
+  text-align: center;
 }
