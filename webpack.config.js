@@ -19,7 +19,7 @@ module.exports = function(env) {
     },
     output: {
       path: github ? path.resolve(__dirname, 'gh-pages') : path.resolve(__dirname, 'deploy/static'),
-      publicPath: github ? '/' : '/static/',
+      publicPath: github ? '' : 'static/',
       filename: 'js/[name].js?[chunkhash:8]',
     },
     module: {
@@ -34,7 +34,8 @@ module.exports = function(env) {
           test: /\.scss$/,
           use: extractSass.extract({
             use: ['css-loader', 'sass-loader?sourceMap'],
-            fallback: 'style-loader'
+            fallback: 'style-loader',
+            publicPath: '../'
           })
         }, {
           test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

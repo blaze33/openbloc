@@ -7,8 +7,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(/fonts/fontawesome-webfont.eot?674f50d2);
-  src: url(/fonts/fontawesome-webfont.eot?674f50d2?#iefix&v=4.7.0) format("embedded-opentype"), url(/fonts/fontawesome-webfont.woff2?af7ae505) format("woff2"), url(/fonts/fontawesome-webfont.woff?fee66e71) format("woff"), url(/fonts/fontawesome-webfont.ttf?b06871f2) format("truetype"), url(/fonts/fontawesome-webfont.svg?d139fdde#fontawesomeregular) format("svg");
+  src: url(../fonts/fontawesome-webfont.eot?674f50d2);
+  src: url(../fonts/fontawesome-webfont.eot?674f50d2?#iefix&v=4.7.0) format("embedded-opentype"), url(../fonts/fontawesome-webfont.woff2?af7ae505) format("woff2"), url(../fonts/fontawesome-webfont.woff?fee66e71) format("woff"), url(../fonts/fontawesome-webfont.ttf?b06871f2) format("truetype"), url(../fonts/fontawesome-webfont.svg?d139fdde#fontawesomeregular) format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2329,7 +2329,7 @@
   clip: auto; }
 
 html {
-  background: url("/images/beautiful sunrise 2 mod.jpg?3dc37185") no-repeat center center fixed;
+  background: url("../images/beautiful sunrise 2 mod.jpg?3dc37185") no-repeat center center fixed;
   background-size: cover; }
 
 body {
@@ -2367,13 +2367,13 @@ h1 {
   .contact-me .icon-careers {
     height: 1.6em;
     width: 1.6em;
-    background: url(/images/careers-icon.png?1a23bb3f) no-repeat center center;
+    background: url(../images/careers-icon.png?1a23bb3f) no-repeat center center;
     background-size: 100%;
     vertical-align: bottom; }
   .contact-me .icon-stackoverflow {
     height: 1.6em;
     width: 1.6em;
-    background: url(/images/so-icon.png?c253f508) no-repeat center center;
+    background: url(../images/so-icon.png?c253f508) no-repeat center center;
     background-size: 100%;
     vertical-align: bottom; }
 
