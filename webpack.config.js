@@ -11,6 +11,7 @@ module.exports = function (env) {
     disable: env === 'dev'
   })
   const github = env === 'github'
+  const dev = env === 'dev'
 
   return {
     entry: {
@@ -19,7 +20,7 @@ module.exports = function (env) {
     },
     output: {
       path: github ? path.resolve(__dirname, 'gh-pages') : path.resolve(__dirname, 'deploy/static'),
-      publicPath: github ? '' : 'static/',
+      publicPath: github || dev ? '' : 'static/',
       filename: `js/[name].js${env === 'dev' ? '' : '?[chunkhash:8]'}`
     },
     module: {
